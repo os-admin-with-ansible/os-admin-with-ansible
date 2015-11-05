@@ -1,7 +1,7 @@
-# OpenStack Administration with Ansible (Tenative Release end of 2015)
+# OpenStack Administration with Ansible (Tenative Release March 2016)
 ## Completed playbooks and roles from the OpenStack Administration with Ansible published book
-### To Buy the Book
-*Details coming soon...*
+### To Buy the Book - open for pre-order now
+https://www.packtpub.com/virtualization-and-cloud/openstack-administration-ansible
 ### Author
 Walter Bentley (@djstayflypro)
 ### About the Book

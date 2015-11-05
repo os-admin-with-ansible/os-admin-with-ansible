@@ -1,0 +1,13 @@
+---
+
+- name: Create new instance flavor for Docker
+  command: nova --os-username={{ OS_USERNAME }} --os-password={{ OS_PASSWORD }} --os-tenant-name={{ OS_TENANT_NAME }} --os-auth-url={{ OS_AUTH_URL }} flavor-create {{ FLAVOR_NAME }} {{ FLAVOR_ID }} 2048 20 1
+
+- name: Define extra specs for Docker flavor
+  command: nova --os-username={{ OS_USERNAME }} --os-password={{ OS_PASSWORD }} --os-tenant-name={{ OS_TENANT_NAME }} --os-auth-url={{ OS_AUTH_URL }} flavor-key {{ FLAVOR_ID }} set virt_type=docker
+
+- name: Create new Host Aggregate for Docker nodes
+  command: nova --os-username={{ OS_USERNAME }} --os-password={{ OS_PASSWORD }} --os-tenant-name={{ OS_TENANT_NAME }} --os-auth-url={{ OS_AUTH_URL }} aggregate-create {{ AGG_NAME }} {{ AVAIL_ZONE }}
+
+- name: Create new Host Aggregate for Docker nodes
+  command: nova --os-username={{ OS_USERNAME }} --os-password={{ OS_PASSWORD }} --os-tenant-name={{ OS_TENANT_NAME }} --os-auth-url={{ OS_AUTH_URL }} aggregate-set-metadata {{ AGG_NAME }} virt_type=docker

@@ -1,0 +1,10 @@
+# Here are variables related to the nova-docker setup
+
+OS_USERNAME: admin
+OS_PASSWORD: passwd
+OS_TENANT_NAME: admin
+OS_AUTH_URL:
+FLAVOR_NAME: m1.container
+FLAVOR_ID: m1dockerctr
+AGG_NAME: docker
+AVAIL_ZONE: docker-zone

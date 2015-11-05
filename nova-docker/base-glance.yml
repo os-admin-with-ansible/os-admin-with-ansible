@@ -1,0 +1,9 @@
+---
+# This playbook deploys components needed for nova-docker. 
+
+- hosts: glance_container
+  user: root
+  remote_user: root
+  sudo: yes
+  roles:
+    - glance-update

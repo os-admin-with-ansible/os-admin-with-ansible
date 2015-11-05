@@ -1,0 +1,17 @@
+---
+
+- name: Copy Docker filter file
+  copy: src=docker.filters dest=/etc/nova/rootwrap.d mode=0644
+  
+- name: Change default scheduler filters
+  shell: chdir=/bin sed -i 's/^scheduler_default_filters.*/scheduler_default_filters = AggregateInstanceExtraSpecsFilter,RetryFilter,AvailabilityZoneFilter,RamFilter,ComputeFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter/' /etc/nova/nova.conf
+  
+- name: Update Nova compute driver
+  shell: chdir=/bin sed -i 's/^compute_driver.*/compute_driver = novadocker.virt.docker.DockerDriver/' /etc/nova/nova.conf
+
+- name: Copy Docker section file
+  copy: src=docker dest=/usr/share mode=0644
+
+- name: Insert Docker section into Nova config
+  shell: chdir=/usr/share cat /usr/share/docker >> /etc/nova/nova.conf
+  notify: restart nova-compute

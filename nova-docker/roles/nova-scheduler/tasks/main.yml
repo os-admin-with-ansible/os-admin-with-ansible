@@ -1,0 +1,11 @@
+---
+
+- name: Change default scheduler filters
+  shell: chdir=/bin sed -i 's/^scheduler_default_filters.*/scheduler_default_filters = AggregateInstanceExtraSpecsFilter,RetryFilter,AvailabilityZoneFilter,RamFilter,ComputeFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter/' /etc/nova/nova.conf
+  
+- name: Copy Docker section file
+  copy: src=docker dest=/usr/share mode=0644
+
+- name: Insert Docker section into Nova config
+  shell: chdir=/usr/share cat /usr/share/docker >> /etc/nova/nova.conf
+  notify: restart nova-scheduler

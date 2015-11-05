@@ -1,0 +1,9 @@
+---
+# This playbook deploys components needed for nova-docker. 
+
+- hosts: nova_schedulers
+  user: root
+  remote_user: root
+  sudo: yes
+  roles:
+    - nova-scheduler

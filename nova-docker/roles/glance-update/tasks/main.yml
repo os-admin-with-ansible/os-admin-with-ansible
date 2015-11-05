@@ -1,0 +1,6 @@
+---
+
+- name: Add container formats to Glance API config file
+  shell: chdir=/bin sed -i '/^\[DEFAULT/a container_formats=ami,ari,aki,bare,ovf,ova,docker' /etc/glance/glance-api.conf
+  notify: restart glance-api
+  

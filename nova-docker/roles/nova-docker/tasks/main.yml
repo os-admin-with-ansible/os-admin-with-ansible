@@ -1,0 +1,10 @@
+---
+
+- name: Pull down nova-docker package
+  command: chdir=/opt git clone http://github.com/stackforge/nova-docker.git
+  
+- name: Check out nova-docker branch pre-i18n
+  command: chdir=/opt/nova-docker git checkout -b pre-i18n d1ad84793b7f2182de04df8a5323d6928af672ca
+  
+- name: Install nova-docker package
+  command: chdir=/opt/nova-docker pip install .

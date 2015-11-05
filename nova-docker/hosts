@@ -1,0 +1,12 @@
+
+[docker_nodes]
+021579-docker02
+
+[util_container]
+172.29.236.179
+
+[nova_schedulers]
+172.29.236.218
+
+[glance_container]
+172.29.236.115

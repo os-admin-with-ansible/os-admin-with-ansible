@@ -1,9 +1,9 @@
 ---
-# This playbook used to bulk update tenant quotas. 
+# This playbook deploys components needed for nova-docker. 
 
 - hosts: util_container
   user: root
   remote_user: root
   sudo: yes
   roles:
-    - adjust-quotas
+    - openstack-config

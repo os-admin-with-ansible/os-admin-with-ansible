@@ -1,0 +1,26 @@
+---
+# This playbook used to run a cloud resource inventory report. 
+
+- hosts: galera_container
+  user: root
+  remote_user: root
+  sudo: yes
+  roles:
+    - cloud-inventory
+    
+- hosts: util_container
+  user: root
+  remote_user: root
+  sudo: yes
+  roles:
+    - cloud-usage
+
+- hosts: galera_container
+  user: root
+  remote_user: root
+  sudo: yes
+  roles:
+    - user-inventory
+    - tenant-inventory
+    - network-inventory
+    - volume-inventory
