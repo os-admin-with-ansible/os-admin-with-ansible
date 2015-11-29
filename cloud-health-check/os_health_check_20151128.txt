@@ -1,0 +1,112 @@
++------------------------------------+
+| Rackspace RPC Cloud Health Check   |
+| Created at 2015-11-28	08:00:06 PM  |
++------------------------------------+
+ 
+infra1_galera_container-3f1f79fb | success | rc=0 >>
+Variable_name	Value
+wsrep_cluster_conf_id	1
+wsrep_cluster_size	1
+wsrep_cluster_state_uuid	55087fd1-834d-11e5-a916-fa366d44982c
+wsrep_cluster_status	Primary
+
+infra1_rabbit_mq_container-6193dd22 | success | rc=0 >>
+Cluster status of node 'rabbit@infra1_rabbit_mq_container-6193dd22' ...
+[{nodes,[{disc,['rabbit@infra1_rabbit_mq_container-6193dd22']}]},
+ {running_nodes,['rabbit@infra1_rabbit_mq_container-6193dd22']},
+ {cluster_name,<<"rpc">>},
+ {partitions,[]}]
+
+infra1_rabbit_mq_container-6193dd22 | success | rc=0 >>
+Listing queues ...
+notifications.info	34
+
++----------------------------------+----------+----------------+-----------------------------+
+|                id                |   name   |      type      |         description         |
++----------------------------------+----------+----------------+-----------------------------+
+| 91de22b2e13442cabbe34cea3fef573d |  cinder  |     volume     |    Cinder volume service    |
+| 6a0cf7c6d9164811961ac6e37a83bd5d | cinderv2 |    volumev2    |   Cinder Volume Service V2  |
+| a7bbb97528f240408f0795f87cbe1736 |   ec2    |      ec2       |   EC2 Compatibility Layer   |
+| b2ed2528b3a44bcc9b712a529ef59816 |  glance  |     image      |     Glance Image Service    |
+| 609f64ef56e542de9766e15a551b268b |   heat   | cloudformation | Heat CloudFormation Service |
+| d68ada96f2d44130bb0858e2c899c745 |   heat   | orchestration  |  Heat Orchestration Service |
+| 83bd0b8395c44295826d828b2113237f | keystone |    identity    |  Keystone Identity Service  |
+| 1857268f89744b74af1c68c592643406 | neutron  |    network     |     OpenStack Networking    |
+| 719bd5ca1aba4efd957d8d6da3f066c8 |   nova   |    compute     |     Nova Compute Service    |
+| 2699e0f6229a43098d084035bce5e99b |  novav3  |   computev3    |   Nova Compute Service V3   |
+| 25e905fc1a5345e0899c792071674646 |    s3    |       s3       |    S3 Compatibility Layer   |
++----------------------------------+----------+----------------+-----------------------------+
+ 
++----+------------------+----------------------------------------------+----------+---------+-------+----------------------------+-----------------+
+| Id | Binary           | Host                                         | Zone     | Status  | State | Updated_at                 | Disabled Reason |
++----+------------------+----------------------------------------------+----------+---------+-------+----------------------------+-----------------+
+| 1  | nova-scheduler   | infra1_nova_scheduler_container-43ac2ced     | internal | enabled | up    | 2015-11-28T20:00:04.000000 | -               |
+| 2  | nova-conductor   | infra1_nova_conductor_container-4341e4f4     | internal | enabled | up    | 2015-11-28T20:00:12.000000 | -               |
+| 6  | nova-cert        | infra1_nova_cert_container-09847cea          | internal | enabled | up    | 2015-11-28T20:00:09.000000 | -               |
+| 7  | nova-compute     | 021579-compute03                             | nova     | enabled | up    | 2015-11-28T20:00:11.000000 | -               |
+| 8  | nova-compute     | 021579-compute02                             | nova     | enabled | up    | 2015-11-28T20:00:03.000000 | -               |
+| 9  | nova-consoleauth | infra1_nova_spice_console_container-d40c8702 | internal | enabled | up    | 2015-11-28T20:00:06.000000 | -               |
++----+------------------+----------------------------------------------+----------+---------+-------+----------------------------+-----------------+
+ 
++--------------------------------------+--------------------+------------------------------------------+-------+----------------+---------------------------+
+| id                                   | agent_type         | host                                     | alive | admin_state_up | binary                    |
++--------------------------------------+--------------------+------------------------------------------+-------+----------------+---------------------------+
+| 8316ab4e-47f1-48e1-82dd-8a78e7621e3f | Metadata agent     | infra1_neutron_agents_container-bda7cb47 | :-)   | True           | neutron-metadata-agent    |
+| 8577b3b7-689f-44b3-859f-daf908897c62 | Linux bridge agent | 021579-compute02                         | :-)   | True           | neutron-linuxbridge-agent |
+| 8e8adb05-43cf-4b61-a578-b01f8953ed15 | DHCP agent         | infra1_neutron_agents_container-bda7cb47 | :-)   | True           | neutron-dhcp-agent        |
+| b13d81b7-4d0f-407c-b8db-11ced9056dd0 | L3 agent           | infra1_neutron_agents_container-bda7cb47 | :-)   | True           | neutron-l3-agent          |
+| dd5d1262-0599-45a9-b8d3-1ec3d3078c15 | Linux bridge agent | 021579-compute03                         | :-)   | True           | neutron-linuxbridge-agent |
+| e71d6f61-acbb-4fb6-9f8d-d16f59597c66 | Metering agent     | infra1_neutron_agents_container-bda7cb47 | :-)   | True           | neutron-metering-agent    |
+| f40c9ece-ebbb-4624-a4bd-5d186179425b | Linux bridge agent | infra1_neutron_agents_container-bda7cb47 | :-)   | True           | neutron-linuxbridge-agent |
++--------------------------------------+--------------------+------------------------------------------+-------+----------------+---------------------------+
+ 
+infra1_keystone_container-15b80c4e | success | rc=0 >>
+ * apache2 is running
+
+compute3 | success | rc=0 >>
+nova-compute start/running, process 970
+
+compute1 | success | rc=0 >>
+nova-compute start/running, process 5607
+
+compute2 | success | rc=0 >>
+nova-compute start/running, process 970
+
+compute1 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 12343
+
+compute3 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 6613
+
+compute2 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 6613
+
+infra1_nova_api_os_compute_container-7294f6e6 | success | rc=0 >>
+nova-api-os-compute start/running, process 2425
+
+infra1_nova_scheduler_container-43ac2ced | success | rc=0 >>
+nova-scheduler start/running, process 2224
+
+infra1_neutron_server_container-77ce2829 | success | rc=0 >>
+neutron-server start/running, process 1806
+
+compute1 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 12343
+
+compute2 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 6613
+
+compute3 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 6613
+
+infra1_neutron_agents_container-bda7cb47 | success | rc=0 >>
+neutron-linuxbridge-agent start/running, process 932
+
+infra1_glance_container-9df2eb8f | success | rc=0 >>
+glance-api start/running, process 1031
+
+infra1_glance_container-9df2eb8f | success | rc=0 >>
+glance-registry start/running, process 1275
+
+infra1_horizon_container-3a09726f | success | rc=0 >>
+ * apache2 is running
